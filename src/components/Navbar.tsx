@@ -296,6 +296,10 @@ const NAV_ITEMS: Array<NavItem> = [
     href: "/events",
   },
   {
+    label: "Transfers",
+    href: "/transfers",
+  },
+  {
     label: "Charts",
     href: "/charts",
   }

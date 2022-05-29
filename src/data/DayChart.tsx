@@ -22,7 +22,7 @@ export default function DayChart() {
   }
 
   const query = gql`
-    query Blocks($last: Int, $orderBy: [DaysOrderBy!]) {
+    query Days($last: Int, $orderBy: [DaysOrderBy!]) {
       query {
         days(last: $last, orderBy: $orderBy) {
           nodes {
@@ -30,6 +30,8 @@ export default function DayChart() {
             date
             extrinsics
             events
+            transferAmount
+            transferCount
           }
         }
       }
@@ -44,6 +46,8 @@ export default function DayChart() {
   const lineKeyArray = [
     {key: 'Extrinsics', value: 'extrinsics'},
     {key: 'Events', value: 'events'},
+    {key: 'Transfer Amount', value: 'transferAmount'},
+    {key: 'No. of Transfers', value: 'transferCount'},
   ]
 
   const { loading, error, data } = useQuery(query, {variables: variables});
@@ -95,10 +99,7 @@ interface DayData {
   date: number
   extrinsics: number
   events: number
+  transferAmount: bigint
+  transferCount: number
 }
 
-interface RCProps {
-  data: DayData[]
-  lineKey: string
-  legend: string
-}

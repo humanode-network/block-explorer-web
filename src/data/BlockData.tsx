@@ -5,13 +5,15 @@ import Tabs from "../components/Tabs"
 import { timeSince } from "../utils";
 import EventTable from "./EventTable";
 import ExtrinsicTable from "./ExtrinsicTable";
+import TransferTable from "./TransferTable";
 
 
 export default function BlockData({id}: Props) {
   const filter = {"blockId": {"equalTo": id}}
   const tabsData = [
     {label: "Extrinsics", content: <ExtrinsicTable moreVariables={{filter}}/>},
-    {label: "Events", content: <EventTable moreVariables={{filter}} />}
+    {label: "Events", content: <EventTable moreVariables={{filter}} />},
+    {label: "Transfers", content: <TransferTable moreVariables={{filter}}/>}
   ]
 
   return(

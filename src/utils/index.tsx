@@ -1,7 +1,7 @@
 import { Link } from "@chakra-ui/react";
 import { FieldPolicy, InMemoryCache } from "@apollo/client";
 
-export const ENDPOINT = "https://api.subquery.network/sq/parascan-xyz/basilisk-aggregate__cGFyY"
+export const ENDPOINT = "https://api.subquery.network/sq/parascan-xyz/basilisk-parascan__cGFyY"
 
 const fieldPolicy: FieldPolicy = {
   keyArgs: false,
@@ -20,7 +20,8 @@ export const CACHE = new InMemoryCache({
       fields: {
         blocks: fieldPolicy,
         extrinsics: fieldPolicy,
-        events: fieldPolicy
+        events: fieldPolicy,
+        transfers: fieldPolicy,
       },
     },
   },
@@ -79,4 +80,3 @@ export const timeSince = (date: number | string) => {
   }
   return Math.floor(seconds) + " seconds ago";
 };
-
