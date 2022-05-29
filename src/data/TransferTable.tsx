@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { PAGINATION_PART_OF_QUERY, truncateText, timeSince } from "../utils";
+import { PAGINATION_PART_OF_QUERY, truncateText, timeSince, BlockLink, ExtrinsicLink, AccountLink } from "../utils";
 import RTable from "./RTable";
 
 
@@ -47,10 +47,11 @@ export default function TransferTable({moreVariables, noMore}: Props) {
     data.query.transfers.nodes.map(
       (d: TransferData) => ({
         id: d.id,
-        block: d.block.id,
+        block: BlockLink(d.block.id),
+        extrinsic: d.extrinsicIndex && ExtrinsicLink(`${d.block.id}-${d.extrinsicIndex}`),
         time: timeSince(d.block.timestamp),
-        from: truncateText(d.fromId),
-        to: truncateText(d.toId),
+        from: AccountLink(d.fromId),
+        to: AccountLink(d.toId),
         value: d.value / 10**18
       })
     );
@@ -74,7 +75,7 @@ interface TransferData {
   fromId: string
   toId: string
   value: number
-  extrinsicIndex: number
+  extrinsicIndex?: number
   eventIndex: number
   block: {
     id: string

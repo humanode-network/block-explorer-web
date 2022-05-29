@@ -80,3 +80,27 @@ export const timeSince = (date: number | string) => {
   }
   return Math.floor(seconds) + " seconds ago";
 };
+
+export const BlockLink = (block: string) => {
+  return (
+    <Link href={`/block/${block}`} color="blue.600">
+      {block}
+    </Link>
+  )
+}
+
+export const ExtrinsicLink = (extrinsic: string) => {
+  return (
+    <Link href={`/extrinsic/${extrinsic}`} color="blue.600">
+      {extrinsic}
+    </Link>
+  )
+}
+
+export const AccountLink = (account: string) => {
+  return (
+    <Link href={`/account/${account}`} color="blue.600">
+      {truncateText(account)}
+    </Link>
+  )
+}

@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { PAGINATION_PART_OF_QUERY, truncateText, timeSince } from "../utils";
+import { PAGINATION_PART_OF_QUERY, truncateText, timeSince, BlockLink } from "../utils";
 import RTable from "./RTable";
 
 
@@ -46,7 +46,7 @@ export default function BlockTable( { moreVariables, noMore }: Props) {
     data &&
     data.query.blocks.nodes.map(
       (d: BlockData) => ({
-        block: d.id,
+        block: BlockLink(d.id),
         extrinsics: d.extrinsics.totalCount,
         events: d.events.totalCount,
         time: timeSince(d.timestamp),

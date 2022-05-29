@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { PAGINATION_PART_OF_QUERY, truncateText, timeSince } from "../utils";
+import { PAGINATION_PART_OF_QUERY, truncateText, timeSince, BlockLink, ExtrinsicLink } from "../utils";
 import RTable from "./RTable";
 
 
@@ -49,8 +49,8 @@ export default function ExtrinsicTable({moreVariables, noMore}: Props) {
     data &&
     data.query.extrinsics.nodes.map(
       (d: ExtrinsicData) => ({
-        id: d.id,
-        block: d.block.id,
+        id: ExtrinsicLink(d.id),
+        block: BlockLink(d.block.id),
         hash: truncateText(d.hash),
         time: timeSince(d.block.timestamp),
         result: String(d.success),

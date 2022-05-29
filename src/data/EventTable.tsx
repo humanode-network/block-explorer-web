@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { PAGINATION_PART_OF_QUERY, truncateText, timeSince } from "../utils";
+import { PAGINATION_PART_OF_QUERY, truncateText, timeSince, BlockLink, ExtrinsicLink } from "../utils";
 import RTable from "./RTable";
 
 
@@ -44,8 +44,8 @@ export default function EventTable({moreVariables, noMore}: Props) {
     data.query.events.nodes.map(
       (d: EventData) => ({
         id: d.id,
-        block: d.block.id,
-        extrinsicId: d.extrinsicId,
+        block: BlockLink(d.block.id),
+        extrinsicId: d.extrinsicId && ExtrinsicLink(d.extrinsicId),
         time: timeSince(d.block.timestamp),
         action: `${d.section} (${d.method})`
       })
