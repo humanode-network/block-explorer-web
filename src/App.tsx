@@ -6,6 +6,7 @@ import Homepage from "./pages/Homepage"
 import Blocks from "./pages/Blocks";
 import Extrinsics from "./pages/Extrinsics";
 import Events from "./pages/Events";
+import Charts from "./pages/Charts";
 import Block from "./pages/Block";
 import Extrinsic from "./pages/Extrinsic";
 import Account from "./pages/Account"
@@ -17,6 +18,7 @@ const linkPage = [
   {path: '/blocks', component: <Blocks />},
   {path: '/extrinsics', component: <Extrinsics />},
   {path: '/events', component: <Events />},
+  {path: '/charts', component: <Charts />},
   {path: '/block/:id', component: <Block />},
   {path: '/extrinsic/:id', component: <Extrinsic />},
   {path: '/account/:id', component: <Account />},

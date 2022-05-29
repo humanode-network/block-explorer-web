@@ -1,7 +1,7 @@
 import { Link } from "@chakra-ui/react";
 import { FieldPolicy, InMemoryCache } from "@apollo/client";
 
-export const ENDPOINT = "https://api.subquery.network/sq/parascan-xyz/basic-basilisk"
+export const ENDPOINT = "https://api.subquery.network/sq/parascan-xyz/basilisk-aggregate__cGFyY"
 
 const fieldPolicy: FieldPolicy = {
   keyArgs: false,
