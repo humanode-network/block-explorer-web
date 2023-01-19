@@ -1,7 +1,7 @@
 import { Link } from "@chakra-ui/react";
 import { FieldPolicy, InMemoryCache } from "@apollo/client";
 
-export const ENDPOINT = "https://api.subquery.network/sq/parascan-xyz/basilisk-parascan__cGFyY"
+export const ENDPOINT = "http://localhost:3000";
 
 const fieldPolicy: FieldPolicy = {
   keyArgs: false,
