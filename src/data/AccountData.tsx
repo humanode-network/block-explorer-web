@@ -1,40 +1,45 @@
 import { Box, Heading } from "@chakra-ui/react";
-import Tabs from "../components/Tabs"
+import Tabs from "../components/Tabs";
 import ExtrinsicTable from "./ExtrinsicTable";
 import TransferTable from "./TransferTable";
 
-
-export default function ExtrinsicData({id}: Props) {
-  id = id.toLowerCase()
-  const extrinsicFilter = {"signerId": {"equalTo": id}}
+export default function ExtrinsicData({ id }: Props) {
+  id = id.toLowerCase();
+  const extrinsicFilter = { signerId: { equalTo: id } };
   const transferFilter = {
-    "or": [
+    or: [
       {
-        "fromId": {
-          "equalTo": id
-        }
+        fromId: {
+          equalTo: id,
+        },
       },
       {
-        "toId": {
-          "equalTo": id
-        }
-      }
-    ]
-  }
+        toId: {
+          equalTo: id,
+        },
+      },
+    ],
+  };
   const tabsData = [
-    {label: "Extrinsics", content: <ExtrinsicTable moreVariables={{filter: extrinsicFilter}}/>},
-    {label: "Transfers", content: <TransferTable moreVariables={{filter: transferFilter}}/>},  
-  ]
+    {
+      label: "Extrinsics",
+      content: <ExtrinsicTable moreVariables={{ filter: extrinsicFilter }} />,
+    },
+    {
+      label: "Transfers",
+      content: <TransferTable moreVariables={{ filter: transferFilter }} />,
+    },
+  ];
 
-  return(
+  return (
     <Box>
       <Heading>Account {id}</Heading>
       <br />
       <Tabs data={tabsData} />
     </Box>
-  )
+  );
 }
 
 interface Props {
-  id: string
+  id: string;
 }

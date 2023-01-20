@@ -4,10 +4,8 @@ import TransferTable from "../data/TransferTable";
 export default function Transfers() {
   return (
     <Box>
-      <Heading>
-        Transfers
-      </Heading>
+      <Heading>Transfers</Heading>
       <TransferTable />
     </Box>
-  )
+  );
 }

@@ -4,10 +4,8 @@ import EventTable from "../data/EventTable";
 export default function Events() {
   return (
     <Box>
-      <Heading>
-        Events
-      </Heading>
+      <Heading>Events</Heading>
       <EventTable />
     </Box>
-  )
+  );
 }

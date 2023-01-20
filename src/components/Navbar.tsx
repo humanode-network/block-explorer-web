@@ -302,5 +302,5 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Charts",
     href: "/charts",
-  }
+  },
 ];

@@ -13,13 +13,8 @@ import { Column, useTable } from "react-table";
 export default function Table({ columns, data, variant }: Props) {
   console.log(data);
   // Use the state and functions returned from useTable to build your UI
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = useTable({ columns, data });
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({ columns, data });
 
   // Render the UI for your table
   return (

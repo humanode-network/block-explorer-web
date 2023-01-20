@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 import BlockData from "../data/BlockData";
 
 export default function Block() {
-  const { id } = useParams() as {[key: string]: string}
+  const { id } = useParams() as { [key: string]: string };
   return (
     <Box>
-      <BlockData id={id}/>
+      <BlockData id={id} />
     </Box>
-  )
+  );
 }

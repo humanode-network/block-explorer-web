@@ -1,9 +1,14 @@
 import { gql, useQuery } from "@apollo/client";
-import { PAGINATION_PART_OF_QUERY, truncateText, timeSince, BlockLink, ExtrinsicLink } from "../utils";
+import {
+  PAGINATION_PART_OF_QUERY,
+  truncateText,
+  timeSince,
+  BlockLink,
+  ExtrinsicLink,
+} from "../utils";
 import RTable from "./RTable";
 
-
-export default function ExtrinsicTable({moreVariables, noMore}: Props) {
+export default function ExtrinsicTable({ moreVariables, noMore }: Props) {
   const query = gql`
     query Extrinsics($first: Int, $orderBy: [ExtrinsicsOrderBy!], $filter: ExtrinsicFilter, $after: Cursor) {
       query {
@@ -27,12 +32,12 @@ export default function ExtrinsicTable({moreVariables, noMore}: Props) {
         }
       }
     }
-  `
+  `;
   const variables = {
-    "first": 20,
-    "orderBy": ["BLOCK_NUMBER_DESC", "INDEX_DESC"],
-    ...moreVariables
-  }
+    first: 20,
+    orderBy: ["BLOCK_NUMBER_DESC", "INDEX_DESC"],
+    ...moreVariables,
+  };
 
   const columns = [
     { Header: "Extrinsic Id", accessor: "id" },
@@ -41,58 +46,68 @@ export default function ExtrinsicTable({moreVariables, noMore}: Props) {
     { Header: "Time", accessor: "time" },
     { Header: "Result", accessor: "result" },
     { Header: "Events", accessor: "events" },
-    { Header: "Action", accessor: "action" }
+    { Header: "Action", accessor: "action" },
   ];
-  const { loading, error, data, fetchMore } = useQuery(query, {variables: variables});
+  const { loading, error, data, fetchMore } = useQuery(query, {
+    variables: variables,
+  });
 
   const rData =
     data &&
-    data.query.extrinsics.nodes.map(
-      (d: ExtrinsicData) => ({
-        id: ExtrinsicLink(d.id),
-        block: BlockLink(d.block.id),
-        hash: truncateText(d.hash),
-        time: timeSince(d.block.timestamp),
-        result: String(d.success),
-        events: d.events.totalCount,
-        action: `${d.section} (${d.method})`
-      })
-    );
-  
+    data.query.extrinsics.nodes.map((d: ExtrinsicData) => ({
+      id: ExtrinsicLink(d.id),
+      block: BlockLink(d.block.id),
+      hash: truncateText(d.hash),
+      time: timeSince(d.block.timestamp),
+      result: String(d.success),
+      events: d.events.totalCount,
+      action: `${d.section} (${d.method})`,
+    }));
+
   // console.log(rData)
 
   const loadMore = () => {
     fetchMore({
-      variables: {after: data.query.extrinsics.pageInfo.endCursor}
-    })
-    console.log(`Load more after ${data.query.extrinsics.pageInfo.endCursor}`)
-  }
+      variables: { after: data.query.extrinsics.pageInfo.endCursor },
+    });
+    console.log(`Load more after ${data.query.extrinsics.pageInfo.endCursor}`);
+  };
 
   return (
-    <RTable  {...{data, rData, columns, loadMore, loading, noMore, hasNextPage: data?.query.extrinsics.pageInfo.hasNextPage }}/>
-  )
+    <RTable
+      {...{
+        data,
+        rData,
+        columns,
+        loadMore,
+        loading,
+        noMore,
+        hasNextPage: data?.query.extrinsics.pageInfo.hasNextPage,
+      }}
+    />
+  );
 }
 
 interface ExtrinsicData {
-  id: string
-  hash: string
-  section: string
-  method: string
-  success: boolean
-  events: {totalCount: number}
+  id: string;
+  hash: string;
+  section: string;
+  method: string;
+  success: boolean;
+  events: { totalCount: number };
   block: {
-    id: string
-    number: number
-    timestamp: string
-  }
+    id: string;
+    number: number;
+    timestamp: string;
+  };
 }
 
 interface Props {
-  noMore?: boolean
+  noMore?: boolean;
   moreVariables?: {
-    first?: number
-    after?: string
-    filter?: any
-    orderBy?: any
-  }
+    first?: number;
+    after?: string;
+    filter?: any;
+    orderBy?: any;
+  };
 }

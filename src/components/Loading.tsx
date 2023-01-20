@@ -8,5 +8,5 @@ export default function Loading() {
         Loading
       </Alert>
     </Box>
-  )
+  );
 }

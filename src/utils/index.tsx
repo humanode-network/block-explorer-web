@@ -5,14 +5,14 @@ export const ENDPOINT = "http://localhost:3000";
 
 const fieldPolicy: FieldPolicy = {
   keyArgs: false,
-  merge(existing = {nodes: []}, incoming) {
+  merge(existing = { nodes: [] }, incoming) {
     return {
       nodes: [...existing.nodes, ...incoming.nodes],
       totalCount: incoming.totalCount,
-      pageInfo: incoming.pageInfo
+      pageInfo: incoming.pageInfo,
     };
-  }
-}
+  },
+};
 
 export const CACHE = new InMemoryCache({
   typePolicies: {
@@ -37,24 +37,24 @@ export const PAGINATION_PART_OF_QUERY = `
   totalCount
 `;
 
-export const truncateText = (text:string, l=6) => {
-  if (l && l>0) {
-    return `${text.slice(0, l+2)}...${text.slice(-l)}`
+export const truncateText = (text: string, l = 6) => {
+  if (l && l > 0) {
+    return `${text.slice(0, l + 2)}...${text.slice(-l)}`;
   } else {
-    return text
+    return text;
   }
-}
+};
 
 // timeSince copied from https://stackoverflow.com/a/3177838/7283203
 export const timeSince = (date: number | string) => {
   if (!date) {
     return null;
   }
-  const nowDate = new Date()
+  const nowDate = new Date();
   var seconds = Math.floor(
-    ((nowDate.valueOf() - new Date(date).valueOf()) / 1000)
-    // add timezone offset because date is in UTC
-    + nowDate.getTimezoneOffset() * 60
+    (nowDate.valueOf() - new Date(date).valueOf()) / 1000 +
+      // add timezone offset because date is in UTC
+      nowDate.getTimezoneOffset() * 60
   );
 
   var interval = seconds / 31536000;
@@ -86,21 +86,21 @@ export const BlockLink = (block: string) => {
     <Link href={`/block/${block}`} color="blue.600">
       {block}
     </Link>
-  )
-}
+  );
+};
 
 export const ExtrinsicLink = (extrinsic: string) => {
   return (
     <Link href={`/extrinsic/${extrinsic}`} color="blue.600">
       {extrinsic}
     </Link>
-  )
-}
+  );
+};
 
 export const AccountLink = (account: string) => {
   return (
     <Link href={`/account/${account}`} color="blue.600">
       {truncateText(account)}
     </Link>
-  )
-}
+  );
+};

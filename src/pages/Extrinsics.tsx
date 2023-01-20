@@ -4,10 +4,8 @@ import ExtrinsicTable from "../data/ExtrinsicTable";
 export default function Extrinsics() {
   return (
     <Box>
-      <Heading>
-        Extrinsics
-      </Heading>
+      <Heading>Extrinsics</Heading>
       <ExtrinsicTable />
     </Box>
-  )
+  );
 }
