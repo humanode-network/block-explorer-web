@@ -49,6 +49,7 @@ function ExtrinsicOverview({ id }: Props) {
     extrinsicId: id,
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { loading, error, data } = useQuery(query, { variables: variables });
   let overviewData: OverviewData = [];
   if (data) {

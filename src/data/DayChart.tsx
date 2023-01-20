@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { Box, Button, Heading, Select, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Select, Stack, Text } from "@chakra-ui/react";
 import {
   LineChart,
   ResponsiveContainer,
@@ -51,7 +51,7 @@ export default function DayChart() {
     { key: "Transfer Amount", value: "transferAmount" },
     { key: "No. of Transfers", value: "transferCount" },
   ];
-
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { loading, error, data } = useQuery(query, { variables: variables });
 
   return data ? (
@@ -103,6 +103,7 @@ export default function DayChart() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface DayData {
   id: string;
   date: number;

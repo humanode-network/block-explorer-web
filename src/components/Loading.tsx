@@ -1,4 +1,4 @@
-import { Alert, Box, Spinner, Text } from "@chakra-ui/react";
+import { Alert, Box, Spinner } from "@chakra-ui/react";
 
 export default function Loading() {
   return (

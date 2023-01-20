@@ -44,6 +44,7 @@ export default function BlockTable({ moreVariables, noMore }: Props) {
     { Header: "Events", accessor: "events" },
     { Header: "Block hash", accessor: "hash" },
   ];
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { loading, error, data, fetchMore } = useQuery(query, {
     variables: variables,
   });

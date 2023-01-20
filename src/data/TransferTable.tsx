@@ -1,7 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import {
   PAGINATION_PART_OF_QUERY,
-  truncateText,
   timeSince,
   BlockLink,
   ExtrinsicLink,
@@ -46,6 +45,7 @@ export default function TransferTable({ moreVariables, noMore }: Props) {
     { Header: "To", accessor: "to" },
     { Header: "Value", accessor: "value" },
   ];
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { loading, error, data, fetchMore } = useQuery(query, {
     variables: variables,
   });

@@ -48,6 +48,7 @@ export default function ExtrinsicTable({ moreVariables, noMore }: Props) {
     { Header: "Events", accessor: "events" },
     { Header: "Action", accessor: "action" },
   ];
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { loading, error, data, fetchMore } = useQuery(query, {
     variables: variables,
   });

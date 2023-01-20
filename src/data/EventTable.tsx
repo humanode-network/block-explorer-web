@@ -1,7 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import {
   PAGINATION_PART_OF_QUERY,
-  truncateText,
   timeSince,
   BlockLink,
   ExtrinsicLink,
@@ -42,6 +41,7 @@ export default function EventTable({ moreVariables, noMore }: Props) {
     { Header: "Time", accessor: "time" },
     { Header: "Action", accessor: "action" },
   ];
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { loading, error, data, fetchMore } = useQuery(query, {
     variables: variables,
   });
