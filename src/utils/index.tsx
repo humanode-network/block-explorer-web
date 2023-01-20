@@ -1,7 +1,7 @@
 import { Link } from "@chakra-ui/react";
 import { FieldPolicy, InMemoryCache } from "@apollo/client";
 
-export const ENDPOINT = "http://localhost:3000";
+export const ENDPOINT = "https://subquery.humanode.io";
 
 const fieldPolicy: FieldPolicy = {
   keyArgs: false,
