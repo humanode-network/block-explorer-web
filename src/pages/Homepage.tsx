@@ -9,29 +9,45 @@ export default function Homepage() {
       <Box>
         <Stack direction={"row"}>
           <Heading>Blocks</Heading>
-          <Button backgroundColor="yellow.400" onClick={() => window.open("/blocks", "_self")}>View all</Button>
+          <Button
+            backgroundColor="yellow.400"
+            onClick={() => window.open("/blocks", "_self")}
+          >
+            View all
+          </Button>
         </Stack>
-        <BlockTable moreVariables={{first: 3}} noMore={true}/>
+        <BlockTable moreVariables={{ first: 3 }} noMore={true} />
       </Box>
-      <br /><br />
+      <br />
+      <br />
 
       <Box>
         <Stack direction={"row"}>
           <Heading>Extrinsics</Heading>
-          <Button backgroundColor="yellow.400" onClick={() => window.open("/extrinsics", "_self")}>View all</Button>
+          <Button
+            backgroundColor="yellow.400"
+            onClick={() => window.open("/extrinsics", "_self")}
+          >
+            View all
+          </Button>
         </Stack>
-        <ExtrinsicTable moreVariables={{first: 3}} noMore={true}/>
+        <ExtrinsicTable moreVariables={{ first: 3 }} noMore={true} />
       </Box>
-      <br /><br />
+      <br />
+      <br />
 
       <Box>
         <Stack direction={"row"}>
           <Heading>Events</Heading>
-          <Button backgroundColor="yellow.400" onClick={() => window.open("/events", "_self")}>View all</Button>
+          <Button
+            backgroundColor="yellow.400"
+            onClick={() => window.open("/events", "_self")}
+          >
+            View all
+          </Button>
         </Stack>
-        <EventTable moreVariables={{first: 3}}  noMore={true}/>
+        <EventTable moreVariables={{ first: 3 }} noMore={true} />
       </Box>
-      
     </Box>
-  )
+  );
 }

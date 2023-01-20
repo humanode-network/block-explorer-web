@@ -4,10 +4,8 @@ import DayChart from "../data/DayChart";
 export default function Charts() {
   return (
     <Box>
-      <Heading>
-        Charts
-      </Heading>
+      <Heading>Charts</Heading>
       <DayChart />
     </Box>
-  )
+  );
 }
