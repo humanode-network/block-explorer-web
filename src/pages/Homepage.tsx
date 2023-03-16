@@ -9,10 +9,7 @@ export default function Homepage() {
       <Box>
         <Stack direction={"row"}>
           <Heading>Blocks</Heading>
-          <Button
-            backgroundColor="yellow.400"
-            onClick={() => window.open("/blocks", "_self")}
-          >
+          <Button backgroundColor="yellow.400" as="a" href="/blocks">
             View all
           </Button>
         </Stack>
@@ -24,10 +21,7 @@ export default function Homepage() {
       <Box>
         <Stack direction={"row"}>
           <Heading>Extrinsics</Heading>
-          <Button
-            backgroundColor="yellow.400"
-            onClick={() => window.open("/extrinsics", "_self")}
-          >
+          <Button backgroundColor="yellow.400" as="a" href="/extrinsics">
             View all
           </Button>
         </Stack>
@@ -39,10 +33,7 @@ export default function Homepage() {
       <Box>
         <Stack direction={"row"}>
           <Heading>Events</Heading>
-          <Button
-            backgroundColor="yellow.400"
-            onClick={() => window.open("/events", "_self")}
-          >
+          <Button backgroundColor="yellow.400" as="a" href="/events">
             View all
           </Button>
         </Stack>

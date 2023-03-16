@@ -39,7 +39,7 @@ const Logo = () => {
 
 const handleSearch = (e: KeyboardEvent<HTMLInputElement>) => {
   if (e.key === "Enter") {
-    window.open(`/search?q=${(e.target as HTMLInputElement).value}`);
+    window.location.href = `/search?q=${(e.target as HTMLInputElement).value}`;
   }
 };
 
