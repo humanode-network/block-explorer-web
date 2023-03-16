@@ -23,7 +23,7 @@ const linkPage = [
   { path: "/block/:id", component: <Block /> },
   { path: "/extrinsic/:id", component: <Extrinsic /> },
   { path: "/account/:id", component: <Account /> },
-  { path: "/search/:id", component: <Search /> },
+  { path: "/search", component: <Search /> },
 ];
 
 function App() {

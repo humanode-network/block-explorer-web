@@ -2,6 +2,7 @@ import { Link } from "@chakra-ui/react";
 import { FieldPolicy, InMemoryCache } from "@apollo/client";
 
 export const ENDPOINT = "https://subquery.humanode.io";
+export const SS58_PREFIX = 5234;
 
 const fieldPolicy: FieldPolicy = {
   keyArgs: false,
