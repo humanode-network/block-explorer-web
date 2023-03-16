@@ -1,14 +1,31 @@
 import { Box } from "@chakra-ui/react";
-import { useParams } from "react-router-dom";
+import Loading from "../components/Loading";
+import useQuery from "../hooks/useQuery";
+import useSearchSuggestions from "../hooks/useSearchSuggestions";
+import { suggestionRoute } from "../lib/search";
 
 export default function Search() {
-  const { id } = useParams() as { [key: string]: string };
-  if (id.slice(0, 2) === "0x") {
-    window.open(`/account/${id}`, "_self");
-  } else if (id.indexOf("-") >= 0) {
-    window.open(`/extrinsic/${id}`, "_self");
-  } else if (!isNaN(parseInt(id))) {
-    window.open(`/block/${id}`, "_self");
+  const query = useQuery();
+  const q = query.get("q") || "";
+
+  const suggestions = useSearchSuggestions(q);
+
+  if (suggestions === null) {
+    return <Loading />;
   }
-  return <Box>404 Error: Not Found</Box>;
+
+  if (suggestions.length === 0) {
+    return (
+      <Box>
+        No results found, make sure to pass in a block, extrinsic or address.
+      </Box>
+    );
+  }
+
+  const route = suggestionRoute(suggestions[0]);
+
+  // Navigate to the suggested route.
+  window.location.href = route;
+
+  return <Loading />;
 }
