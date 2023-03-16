@@ -1,3 +1,4 @@
+import { useApolloClient } from "@apollo/client";
 import { useEffect, useState } from "react";
 import { suggest, Suggestion } from "../lib/search";
 
@@ -6,10 +7,12 @@ export type SearchSuggestionsData = null | Suggestion[];
 
 const useSearchSuggestions = (input: string): SearchSuggestionsData => {
   const [suggestions, setSuggestions] = useState<SearchSuggestionsData>(null);
+  const client = useApolloClient();
 
   useEffect(() => {
-    suggest(input).then((suggestions) => setSuggestions(suggestions));
-  }, [input]);
+    const ctx = { client };
+    suggest(ctx, input).then((suggestions) => setSuggestions(suggestions));
+  }, [input, client]);
 
   return suggestions;
 };
