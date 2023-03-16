@@ -11,7 +11,9 @@ export default function Homepage() {
           <Heading>Blocks</Heading>
           <Button
             backgroundColor="yellow.400"
-            onClick={() => window.open("/blocks", "_self")}
+            onClick={() => {
+              window.location.href = "/blocks";
+            }}
           >
             View all
           </Button>
@@ -26,7 +28,9 @@ export default function Homepage() {
           <Heading>Extrinsics</Heading>
           <Button
             backgroundColor="yellow.400"
-            onClick={() => window.open("/extrinsics", "_self")}
+            onClick={() => {
+              window.location.href = "/extrinsics";
+            }}
           >
             View all
           </Button>
@@ -41,7 +45,9 @@ export default function Homepage() {
           <Heading>Events</Heading>
           <Button
             backgroundColor="yellow.400"
-            onClick={() => window.open("/events", "_self")}
+            onClick={() => {
+              window.location.href = "/events";
+            }}
           >
             View all
           </Button>
