@@ -4,7 +4,6 @@ import ExtrinsicTable from "./ExtrinsicTable";
 import TransferTable from "./TransferTable";
 
 export default function ExtrinsicData({ id }: Props) {
-  id = id.toLowerCase();
   const extrinsicFilter = { signerId: { equalTo: id } };
   const transferFilter = {
     or: [
