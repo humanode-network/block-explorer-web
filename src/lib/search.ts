@@ -74,7 +74,7 @@ export const parseExtrinsicId = (input: string): [number, number] | null => {
   }
 };
 
-export const parseHexFixLength = (
+export const parseHexFixedLength = (
   input: string,
   bytes: number
 ): `0x${string}` | null => {
@@ -120,7 +120,7 @@ export const suggestHashLookup = async (
   input: string,
   client: ApolloClient<any>
 ): Promise<Suggestion[]> => {
-  const hash = parseHexFixLength(input, 32);
+  const hash = parseHexFixedLength(input, 32);
   if (!hash) {
     return [];
   }
