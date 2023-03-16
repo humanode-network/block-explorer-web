@@ -9,12 +9,7 @@ export default function Homepage() {
       <Box>
         <Stack direction={"row"}>
           <Heading>Blocks</Heading>
-          <Button
-            backgroundColor="yellow.400"
-            onClick={() => {
-              window.location.href = "/blocks";
-            }}
-          >
+          <Button backgroundColor="yellow.400" as="a" href="/blocks">
             View all
           </Button>
         </Stack>
@@ -26,12 +21,7 @@ export default function Homepage() {
       <Box>
         <Stack direction={"row"}>
           <Heading>Extrinsics</Heading>
-          <Button
-            backgroundColor="yellow.400"
-            onClick={() => {
-              window.location.href = "/extrinsics";
-            }}
-          >
+          <Button backgroundColor="yellow.400" as="a" href="/extrinsics">
             View all
           </Button>
         </Stack>
@@ -43,12 +33,7 @@ export default function Homepage() {
       <Box>
         <Stack direction={"row"}>
           <Heading>Events</Heading>
-          <Button
-            backgroundColor="yellow.400"
-            onClick={() => {
-              window.location.href = "/events";
-            }}
-          >
+          <Button backgroundColor="yellow.400" as="a" href="/events">
             View all
           </Button>
         </Stack>
