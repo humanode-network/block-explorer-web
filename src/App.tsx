@@ -28,7 +28,7 @@ const linkPage = [
 
 function App() {
   return (
-    <Box>
+    <Box padding={"0 10px"}>
       <Router>
         <Navbar />
         <br />

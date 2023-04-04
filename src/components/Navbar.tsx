@@ -58,7 +58,7 @@ export default function Navbar() {
   return (
     <Flex
       padding={{ base: "2px", md: "10px" }}
-      margin={{ base: "10px 2px 2px", md: "10px" }}
+      margin={{ base: "0px 2px 2px", md: "0px" }}
       flexDirection={{ base: "column", lg: "row" }}
       boxShadow="0 2px #ccc"
     >
