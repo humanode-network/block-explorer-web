@@ -1,15 +1,13 @@
-import { Box, BoxProps, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { PropsWithChildren } from "react";
 
 type BlockProps = {
   title?: React.ReactNode;
   actions?: React.ReactNode;
-  p?: BoxProps["p"];
 };
 const Panel: React.FC<PropsWithChildren<BlockProps>> = ({
   actions,
   title,
-  p = 4,
   children,
 }) => (
   <Box>
@@ -21,9 +19,7 @@ const Panel: React.FC<PropsWithChildren<BlockProps>> = ({
       )}
       <Box>{actions}</Box>
     </Box>
-    <Box border="1px" borderColor="inherit" rounded="md" p={p}>
-      {children}
-    </Box>
+    <Box>{children}</Box>
   </Box>
 );
 
