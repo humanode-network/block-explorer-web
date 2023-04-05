@@ -5,9 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import { ApolloClient, ApolloProvider } from "@apollo/client";
 import { CACHE, ENDPOINT } from "./utils";
-import { extendTheme } from "@chakra-ui/react";
-
-const theme = extendTheme({ config: { initialColorMode: "dark" } });
+import theme from "./theme";
 
 const client = new ApolloClient({
   uri: ENDPOINT,
