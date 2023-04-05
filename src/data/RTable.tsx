@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Button, Flex } from "@chakra-ui/react";
 import Table from "../components/Table";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
@@ -14,17 +14,19 @@ export default function RTable({
 }: Props) {
   return data ? (
     <>
-      <Table columns={columns} data={rData} />
-      {hasNextPage && !noMore && (
-        <Button
-          onClick={() => loadMore()}
-          backgroundColor="yellow.400"
-          w="50%"
-          ml="25%"
-        >
-          Load more
-        </Button>
-      )}
+      <Flex direction="column" gap="4px">
+        <Table columns={columns} data={rData} />
+        {hasNextPage && !noMore && (
+          <Button
+            onClick={() => loadMore()}
+            backgroundColor="yellow.400"
+            w="50%"
+            ml="25%"
+          >
+            Load more
+          </Button>
+        )}
+      </Flex>
     </>
   ) : loading ? (
     <Loading />
