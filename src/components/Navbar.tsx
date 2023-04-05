@@ -16,7 +16,6 @@ import {
   PopoverContent,
   useColorModeValue,
   useDisclosure,
-  Heading,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -30,8 +29,7 @@ const Logo = () => {
   return (
     <Link href="/">
       <Flex direction="row" align="center" justifyContent="center">
-        <Image src="/logo.png" alt="humanode" h="60px" />
-        <Heading fontSize="4xl">Humanode</Heading>
+        <Image src="/logo.png" alt="humanode" h="60px" objectFit="contain" />
       </Flex>
     </Link>
   );
@@ -63,16 +61,9 @@ export default function Navbar() {
       borderBottom={"1px"}
       borderColor="inherit"
     >
-      <Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: "left" }} padding={"10px 0"}>
-          {<Logo />}
-        </Flex>
-        <Flex
-          flex={{ base: 1, md: "right" }}
-          ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
-          justifyContent="flex-end"
-        >
+      <Flex justifyContent="space-between">
+        <Box padding={"10px 0"}>{<Logo />}</Box>
+        <Box display={{ base: "flex", md: "none" }} alignItems="center">
           <IconButton
             onClick={onToggle}
             icon={
@@ -81,7 +72,7 @@ export default function Navbar() {
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
           />
-        </Flex>
+        </Box>
       </Flex>
       <Flex
         flex="auto"

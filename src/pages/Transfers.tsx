@@ -1,11 +1,10 @@
-import { Box, Heading } from "@chakra-ui/react";
+import Panel from "../components/Panel";
 import TransferTable from "../data/TransferTable";
 
 export default function Transfers() {
   return (
-    <Box>
-      <Heading>Transfers</Heading>
+    <Panel title="Transfers">
       <TransferTable />
-    </Box>
+    </Panel>
   );
 }

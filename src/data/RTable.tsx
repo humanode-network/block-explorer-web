@@ -12,22 +12,24 @@ export default function RTable({
   hasNextPage,
   noMore,
 }: Props) {
-  return data ? (
-    <Stack alignItems="center">
-      <Box w="100%">
-        <Table columns={columns} data={rData} />
-      </Box>
-      {hasNextPage && !noMore && (
-        <Button onClick={() => loadMore()} w="50%" ml="25%">
-          Load more
-        </Button>
-      )}
-    </Stack>
-  ) : loading ? (
-    <Loading />
-  ) : (
-    <Error />
-  );
+  console.log("🚀 ~ file: RTable.tsx:15 ~ loading:", loading);
+  if (loading) return <Loading />;
+
+  if (data)
+    return (
+      <Stack alignItems="center">
+        <Box w="100%">
+          <Table columns={columns} data={rData} />
+        </Box>
+        {hasNextPage && !noMore && (
+          <Button onClick={() => loadMore()} w="50%" ml="25%">
+            Load more
+          </Button>
+        )}
+      </Stack>
+    );
+
+  return <Error />;
 }
 
 interface Props {

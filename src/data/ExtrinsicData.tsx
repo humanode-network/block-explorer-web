@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { Box, Heading } from "@chakra-ui/react";
+import { Heading, Stack } from "@chakra-ui/react";
 import Overview, { Data as OverviewData } from "../components/Overview";
 import Tabs from "../components/Tabs";
 import { timeSince } from "../utils";
@@ -12,13 +12,11 @@ export default function ExtrinsicData({ id }: Props) {
   ];
 
   return (
-    <Box>
-      <Heading>Extrinsic #{id}</Heading>
-      <br />
+    <Stack gap={2}>
+      <Heading fontSize="3xl">Extrinsic #{id}</Heading>
       <ExtrinsicOverview id={id} />
-      <br />
       <Tabs data={tabsData} />
-    </Box>
+    </Stack>
   );
 }
 

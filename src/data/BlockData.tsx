@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { Box, Heading, Stack } from "@chakra-ui/react";
+import { Heading, Stack } from "@chakra-ui/react";
 import Overview, { Data as OverviewData } from "../components/Overview";
 import Tabs from "../components/Tabs";
 import { timeSince } from "../utils";
