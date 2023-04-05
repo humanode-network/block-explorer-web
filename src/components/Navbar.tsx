@@ -16,6 +16,7 @@ import {
   PopoverContent,
   useColorModeValue,
   useDisclosure,
+  Heading,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -28,8 +29,15 @@ import { KeyboardEvent } from "react";
 const Logo = () => {
   return (
     <Link href="/" h="fit-content">
-      <Flex direction="row" align="center" justifyContent="center">
-        <Image src="/logo.png" alt="humanode" h="40px" objectFit="contain" />
+      <Flex direction="row" align="center" gap={2} justifyContent="center">
+        <Image
+          src="/logo.png"
+          alt="humanode"
+          h="40px"
+          objectFit="contain"
+          mt="7px"
+        />
+        <Heading fontSize="2xl"> Humanode </Heading>
       </Flex>
     </Link>
   );

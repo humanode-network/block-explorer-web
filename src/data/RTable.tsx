@@ -12,7 +12,6 @@ export default function RTable({
   hasNextPage,
   noMore,
 }: Props) {
-  console.log("🚀 ~ file: RTable.tsx:15 ~ loading:", loading);
   if (loading) return <Loading />;
 
   if (data)
