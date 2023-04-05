@@ -7,11 +7,11 @@ import {
   Tr,
   Th,
   Td,
+  TableProps,
 } from "@chakra-ui/react";
 import { Column, useTable } from "react-table";
 
 export default function Table({ columns, data, variant }: Props) {
-  console.log(data);
   // Use the state and functions returned from useTable to build your UI
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data });
@@ -21,7 +21,7 @@ export default function Table({ columns, data, variant }: Props) {
     <>
       <Box display="block" overflowX="auto" whiteSpace="nowrap">
         <CTable variant={variant || "simple"} {...getTableProps()}>
-          <Thead>
+          <Thead backgroundColor={"gray.600"}>
             {headerGroups.map((headerGroup, trIdx) => (
               <Tr {...headerGroup.getHeaderGroupProps()} key={trIdx}>
                 {headerGroup.headers.map((column, thIdx) => (
@@ -36,7 +36,7 @@ export default function Table({ columns, data, variant }: Props) {
             {rows.map((row, trIdx) => {
               prepareRow(row);
               return (
-                <React.Fragment {...row.getRowProps()}>
+                <React.Fragment key={trIdx}>
                   <Tr {...row.getRowProps()} key={trIdx}>
                     {row.cells.map((cell, tdIdx) => {
                       return (
@@ -59,7 +59,7 @@ export default function Table({ columns, data, variant }: Props) {
 export interface Props {
   columns: Array<Column<any>>;
   data: Array<any>;
-  variant?: string;
+  variant?: TableProps["variant"];
   loading?: boolean;
   error?: boolean;
 }

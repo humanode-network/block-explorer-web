@@ -28,10 +28,9 @@ const linkPage = [
 
 function App() {
   return (
-    <Box>
+    <Box display="flex" flexDirection="column" padding={"0 10px"} gap={2}>
       <Router>
         <Navbar />
-        <br />
         <Switch>
           {linkPage.map((obj) => {
             return (

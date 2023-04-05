@@ -1,5 +1,6 @@
-import { Box } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 import Loading from "../components/Loading";
+import Panel from "../components/Panel";
 import useQuery from "../hooks/useQuery";
 import useSearchSuggestions from "../hooks/useSearchSuggestions";
 import { suggestionRoute } from "../lib/search";
@@ -16,9 +17,11 @@ export default function Search() {
 
   if (suggestions.length === 0) {
     return (
-      <Box>
-        No results found, make sure to pass in a block, extrinsic or address.
-      </Box>
+      <Panel>
+        <Text fontSize="xl">
+          No results found, make sure to pass in a block, extrinsic or address.
+        </Text>
+      </Panel>
     );
   }
 

@@ -1,11 +1,10 @@
-import { Box, Heading } from "@chakra-ui/react";
+import Panel from "../components/Panel";
 import EventTable from "../data/EventTable";
 
 export default function Events() {
   return (
-    <Box>
-      <Heading>Events</Heading>
+    <Panel title="Events">
       <EventTable />
-    </Box>
+    </Panel>
   );
 }

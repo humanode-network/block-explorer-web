@@ -1,12 +1,14 @@
-import { Box } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
+import Panel from "../components/Panel";
 import BlockData from "../data/BlockData";
 
-export default function Block() {
+const Block: React.FC = () => {
   const { id } = useParams() as { [key: string]: string };
   return (
-    <Box>
+    <Panel>
       <BlockData id={id} />
-    </Box>
+    </Panel>
   );
-}
+};
+
+export default Block;

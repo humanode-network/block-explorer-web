@@ -13,6 +13,7 @@ import {
 import { useState } from "react";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
+import { useSize } from "react-use";
 
 export default function DayChart() {
   const [lineKey, setLineKey] = useState("extrinsics");
@@ -54,52 +55,66 @@ export default function DayChart() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { loading, error, data } = useQuery(query, { variables: variables });
 
-  return data ? (
-    <Box>
-      <Stack direction="column">
-        <Select
-          display={{ base: "flex", md: "none" }}
-          onChange={(e: any) => changeKey(e.target.value)}
-        >
-          {lineKeyArray.map((x, idx) => (
-            <option value={idx} key={x.value}>
-              {x.key}
-            </option>
-          ))}
-        </Select>
-        <Stack direction="row">
-          <Stack display={{ base: "none", md: "flex" }}>
-            {lineKeyArray.map((x, idx) => (
-              <Button key={x.value} onClick={() => changeKey(idx)}>
-                {x.key}
-              </Button>
-            ))}
-          </Stack>
-          <Box display="contents">
-            <ResponsiveContainer width="100%" height={400}>
-              <LineChart
-                data={data.query.days.nodes}
-                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-              >
-                <CartesianGrid strokeDasharray="1 1" />
-                <XAxis dataKey="date" />
-                <YAxis />
-                <Tooltip />
-                <Legend
-                  verticalAlign="top"
-                  content={<Text color="#F2A006">{legend}</Text>}
-                />
-                <Line type="monotone" dataKey={lineKey} stroke="#F2A006" />
-              </LineChart>
-            </ResponsiveContainer>
-          </Box>
-        </Stack>
+  const [ChartContainer] = useSize(
+    ({ width }) => (
+      <Stack w="100%" justifyContent="center" alignItems="center">
+        {data ? (
+          <ResponsiveContainer height={400}>
+            <LineChart data={data.query.days.nodes}>
+              <CartesianGrid strokeDasharray="1 1" />
+              <XAxis dataKey="date" />
+              <YAxis />
+              <Tooltip />
+              <Legend
+                verticalAlign="top"
+                content={
+                  <Text color="#49c5a9" pb={4}>
+                    {legend}
+                  </Text>
+                }
+              />
+              <Line
+                width={width}
+                type="monotone"
+                dataKey={lineKey}
+                stroke="#49c5a9"
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        ) : loading ? (
+          <Loading />
+        ) : (
+          <Error />
+        )}
       </Stack>
-    </Box>
-  ) : loading ? (
-    <Loading />
-  ) : (
-    <Error />
+    ),
+    { width: 100, height: 100 }
+  );
+
+  return (
+    <Stack direction="column">
+      <Select
+        display={{ base: "flex", md: "none" }}
+        mt={4}
+        onChange={(e: any) => changeKey(e.target.value)}
+      >
+        {lineKeyArray.map((x, idx) => (
+          <option value={idx} key={x.value}>
+            {x.key}
+          </option>
+        ))}
+      </Select>
+      <Stack direction="row">
+        <Stack display={{ base: "none", md: "flex" }} mt={10}>
+          {lineKeyArray.map((x, idx) => (
+            <Button key={x.value} onClick={() => changeKey(idx)}>
+              {x.key}
+            </Button>
+          ))}
+        </Stack>
+        <Box display="contents">{ChartContainer}</Box>
+      </Stack>
+    </Stack>
   );
 }
 

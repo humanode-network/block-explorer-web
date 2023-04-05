@@ -28,10 +28,16 @@ import { KeyboardEvent } from "react";
 
 const Logo = () => {
   return (
-    <Link href="/">
-      <Flex direction="row" align="center">
-        <Image src="/logo.png" alt="humanode" h="60px" />
-        <Heading>Humanode</Heading>
+    <Link href="/" h="fit-content">
+      <Flex direction="row" align="center" gap={2} justifyContent="center">
+        <Image
+          src="/logo.png"
+          alt="humanode"
+          h="40px"
+          objectFit="contain"
+          mt="7px"
+        />
+        <Heading fontSize="2xl"> Humanode </Heading>
       </Flex>
     </Link>
   );
@@ -58,20 +64,16 @@ export default function Navbar() {
   return (
     <Flex
       padding={{ base: "2px", md: "10px" }}
-      margin={{ base: "10px 2px 2px", md: "10px" }}
+      margin={{ base: "0px 2px 2px", md: "0px" }}
       flexDirection={{ base: "column", lg: "row" }}
-      boxShadow="0 2px #ccc"
+      borderBottom={"1px"}
+      borderColor="inherit"
     >
-      <Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: "left" }} padding={"10px 0"}>
+      <Flex justifyContent="space-between">
+        <Box display="flex" alignItems="center" padding={"10px 0"}>
           {<Logo />}
-        </Flex>
-        <Flex
-          flex={{ base: 1, md: "right" }}
-          ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
-          justifyContent="flex-end"
-        >
+        </Box>
+        <Box display={{ base: "flex", md: "none" }} alignItems="center">
           <IconButton
             onClick={onToggle}
             icon={
@@ -80,7 +82,7 @@ export default function Navbar() {
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
           />
-        </Flex>
+        </Box>
       </Flex>
       <Flex
         flex="auto"

@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Box, Button, Stack } from "@chakra-ui/react";
 import Table from "../components/Table";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
@@ -12,25 +12,23 @@ export default function RTable({
   hasNextPage,
   noMore,
 }: Props) {
-  return data ? (
-    <>
-      <Table columns={columns} data={rData} />
-      {hasNextPage && !noMore && (
-        <Button
-          onClick={() => loadMore()}
-          backgroundColor="yellow.400"
-          w="50%"
-          ml="25%"
-        >
-          Load more
-        </Button>
-      )}
-    </>
-  ) : loading ? (
-    <Loading />
-  ) : (
-    <Error />
-  );
+  if (loading) return <Loading />;
+
+  if (data)
+    return (
+      <Stack alignItems="center">
+        <Box w="100%">
+          <Table columns={columns} data={rData} />
+        </Box>
+        {hasNextPage && !noMore && (
+          <Button onClick={() => loadMore()} w="50%" ml="25%">
+            Load more
+          </Button>
+        )}
+      </Stack>
+    );
+
+  return <Error />;
 }
 
 interface Props {

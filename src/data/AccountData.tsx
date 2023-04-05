@@ -1,4 +1,4 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Heading, Stack } from "@chakra-ui/react";
 import Tabs from "../components/Tabs";
 import ExtrinsicTable from "./ExtrinsicTable";
 import TransferTable from "./TransferTable";
@@ -31,11 +31,10 @@ export default function ExtrinsicData({ id }: Props) {
   ];
 
   return (
-    <Box>
-      <Heading>Account {id}</Heading>
-      <br />
+    <Stack gap={2}>
+      <Heading fontSize="3xl">Account {id}</Heading>
       <Tabs data={tabsData} />
-    </Box>
+    </Stack>
   );
 }
 
