@@ -3,7 +3,7 @@ import { Box, Stack, StackDivider } from "@chakra-ui/react";
 
 export default function Overview({ data }: Props) {
   return (
-    <Stack direction="column" divider={<StackDivider borderColor="gray.200" />}>
+    <Stack direction="column" divider={<StackDivider borderColor="inherit" />}>
       {data?.length &&
         data.map((d) =>
           d.value ? (

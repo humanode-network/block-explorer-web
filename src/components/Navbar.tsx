@@ -29,9 +29,9 @@ import { KeyboardEvent } from "react";
 const Logo = () => {
   return (
     <Link href="/">
-      <Flex direction="row" align="center">
+      <Flex direction="row" align="center" justifyContent="center">
         <Image src="/logo.png" alt="humanode" h="60px" />
-        <Heading>Humanode</Heading>
+        <Heading fontSize="4xl">Humanode</Heading>
       </Flex>
     </Link>
   );
@@ -60,7 +60,8 @@ export default function Navbar() {
       padding={{ base: "2px", md: "10px" }}
       margin={{ base: "0px 2px 2px", md: "0px" }}
       flexDirection={{ base: "column", lg: "row" }}
-      boxShadow="0 2px #ccc"
+      borderBottom={"1px"}
+      borderColor="inherit"
     >
       <Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "left" }} padding={"10px 0"}>

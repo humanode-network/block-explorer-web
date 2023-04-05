@@ -7,6 +7,7 @@ import {
   Tr,
   Th,
   Td,
+  TableProps,
 } from "@chakra-ui/react";
 import { Column, useTable } from "react-table";
 
@@ -21,7 +22,7 @@ export default function Table({ columns, data, variant }: Props) {
     <>
       <Box display="block" overflowX="auto" whiteSpace="nowrap">
         <CTable variant={variant || "simple"} {...getTableProps()}>
-          <Thead>
+          <Thead backgroundColor={"gray.600"}>
             {headerGroups.map((headerGroup, trIdx) => (
               <Tr {...headerGroup.getHeaderGroupProps()} key={trIdx}>
                 {headerGroup.headers.map((column, thIdx) => (
@@ -59,7 +60,7 @@ export default function Table({ columns, data, variant }: Props) {
 export interface Props {
   columns: Array<Column<any>>;
   data: Array<any>;
-  variant?: string;
+  variant?: TableProps["variant"];
   loading?: boolean;
   error?: boolean;
 }

@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, Stack } from "@chakra-ui/react";
 import Overview, { Data as OverviewData } from "../components/Overview";
 import Tabs from "../components/Tabs";
 import { timeSince } from "../utils";
@@ -22,13 +22,11 @@ export default function BlockData({ id }: Props) {
   ];
 
   return (
-    <Box>
-      <Heading>Block #{id}</Heading>
-      <br />
+    <Stack gap={2}>
+      <Heading fontSize="3xl">Block #{id}</Heading>
       <BlockOverview id={id} />
-      <br />
       <Tabs data={tabsData} />
-    </Box>
+    </Stack>
   );
 }
 

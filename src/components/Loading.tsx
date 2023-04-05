@@ -1,12 +1,17 @@
-import { Alert, Box, Spinner } from "@chakra-ui/react";
+import { Alert, Box, Spinner, Stack, Text } from "@chakra-ui/react";
 
 export default function Loading() {
   return (
     <Box>
-      <Alert status="info">
-        <Spinner />
-        Loading
-      </Alert>
+      <Stack direction="row" gap={2}>
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="inherit"
+          color="blue.500"
+        />
+        <Text>Loading</Text>
+      </Stack>
     </Box>
   );
 }
