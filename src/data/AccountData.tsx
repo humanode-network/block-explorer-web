@@ -1,4 +1,4 @@
-import { Box, Heading, Stack } from "@chakra-ui/react";
+import { Heading, Stack } from "@chakra-ui/react";
 import Tabs from "../components/Tabs";
 import ExtrinsicTable from "./ExtrinsicTable";
 import TransferTable from "./TransferTable";
