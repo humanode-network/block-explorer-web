@@ -57,10 +57,10 @@ export default function Navbar() {
 
   return (
     <Flex
-      padding={{ base: "2px", md: "10px" }}
-      margin={{ base: "10px 2px 2px", md: "10px" }}
       flexDirection={{ base: "column", lg: "row" }}
       boxShadow="0 2px #ccc"
+      padding="0 0 4px 0"
+      margin="0 0 4px 0"
     >
       <Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "left" }} padding={"10px 0"}>
