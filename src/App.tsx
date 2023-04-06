@@ -28,7 +28,7 @@ const linkPage = [
 
 function App() {
   return (
-    <Box display="flex" flexDirection="column" padding={"0 10px"} gap={2}>
+    <Box display="flex" flexDirection="column" padding={"1em"} gap={2}>
       <Router>
         <Navbar />
         <Switch>
