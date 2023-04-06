@@ -57,14 +57,24 @@ export default function DayChart() {
 
   const [ChartContainer] = useSize(
     ({ width }) => (
-      <Stack w="100%" justifyContent="center" alignItems="center">
+      <Stack
+        w="100%"
+        justifyContent="center"
+        alignItems="center"
+        backgroundColor="rgb(25 25 25)"
+      >
         {data ? (
           <ResponsiveContainer height={400}>
             <LineChart data={data.query.days.nodes}>
               <CartesianGrid strokeDasharray="1 1" />
               <XAxis dataKey="date" />
               <YAxis />
-              <Tooltip />
+              <Tooltip
+                contentStyle={{
+                  borderColor: "inherit",
+                  backgroundColor: "rgb(25 25 25)",
+                }}
+              />
               <Legend
                 verticalAlign="top"
                 content={
@@ -104,7 +114,7 @@ export default function DayChart() {
           </option>
         ))}
       </Select>
-      <Stack direction="row">
+      <Stack direction="row" gap={2}>
         <Stack display={{ base: "none", md: "flex" }} mt={10}>
           {lineKeyArray.map((x, idx) => (
             <Button key={x.value} onClick={() => changeKey(idx)}>

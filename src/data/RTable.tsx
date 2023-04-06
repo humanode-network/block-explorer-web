@@ -16,7 +16,7 @@ export default function RTable({
 
   if (data)
     return (
-      <Stack alignItems="center">
+      <Stack alignItems="center" gap="4px">
         <Box w="100%">
           <Table columns={columns} data={rData} />
         </Box>
