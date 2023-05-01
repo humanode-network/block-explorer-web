@@ -1,4 +1,4 @@
-FROM caddy:2.6.4 as caddy
+FROM caddy:2.6.4 AS caddy
 
 FROM scratch
 
