@@ -4,3 +4,6 @@ encode zstd gzip
 file_server
 
 try_files {path} /index.html
+
+header Access-Control-Allow-Origin {$CORS:*}
+header X-Frame-Options {$FRAME_OPTIONS:DENY}
